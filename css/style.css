@@ -1,0 +1,189 @@
+/* RESET & BODY */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; /* ensures footer (if added later) will stick at bottom */
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* HERO SLIDER */
+.hero {
+  position: relative;
+  height: 50vh;         /* half of viewport height */
+  max-height: 500px;    /* prevents slider from being too tall */
+  overflow: hidden;     /* ensures images/text don’t overflow */
+}
+
+.slides {
+  display: none;
+  position: relative;
+  height: 100%;
+}
+
+.slides img {
+  width: 100%;
+  height: 20%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;                /* centers text vertically */
+  left: 50%;               /* centers horizontally */
+  transform: translate(-50%, -50%); /* perfect center */
+  color: white;
+  font-size: 3vw;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 5px #000;
+  max-width: 90%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-text {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh;
+  }
+  .hero-text {
+    font-size: 5vw;
+  }
+}
+
+/* FEATURES */
+.features {
+  padding: 40px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+
+/* Dropdown menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #111;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #333;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    padding: 10px;
+  }
+
+  .nav a {
+    margin: 10px 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
